@@ -1,0 +1,114 @@
+---
+title: Getting Started with Tacivo
+description: A step-by-step guide to set up your Tacivo account, configure your workspace, and initiate your first knowledge capture session.
+---
+
+## Overview
+
+Tacivo helps you capture expert knowledge through AI-powered conversations, turning tacit expertise into structured, searchable documentation. Follow these steps to create your account, set up a workspace, start your first session, and navigate the interface. You complete setup in under 5 minutes and begin building your knowledge base immediately.
+
+<Callout kind="tip">
+  Use a dedicated email for your Tacivo account to keep notifications organized.
+</Callout>
+
+## Create Your Account
+
+Sign up quickly using your preferred method.
+
+<Tabs>
+  <Tab title="Email" icon="mail">
+    Visit [app.tacivo.com/signup](https://app.tacivo.com/signup) and enter your email address and password.
+    
+    Verify your email via the confirmation link sent to your inbox.
+  </Tab>
+  
+  <Tab title="Google" icon="apple">
+    Click "Sign up with Google" on the signup page.
+    
+    Authorize Tacivo to access your Google account for seamless login.
+  </Tab>
+</Tabs>
+
+## Configure Your Workspace
+
+After account creation, set up your first workspace to organize conversations.
+
+<Steps>
+  <Step title="Create Workspace" icon="folder">
+    From the dashboard, click **New Workspace**.
+    
+    Enter a name like "Engineering Knowledge Base" and select your team size.
+  </Step>
+  
+  <Step title="Add Team Members" icon="users">
+    Invite collaborators by email.
+    
+    Set roles: Admin for full access, Viewer for read-only.
+  </Step>
+  
+  <Step title="Customize Settings" icon="settings">
+    Enable features like real-time collaboration and auto-export to Markdown.
+    
+    Paste your `{API_KEY}` if integrating with external tools.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JSON,YAML">
+```json
+{
+  "workspaceId": "ws_1234567890",
+  "features": {
+    "realTime": true,
+    "autoExport": "markdown"
+  },
+  "apiKey": "your-api-key-here"
+}
+```
+
+```yaml
+workspaceId: ws_1234567890
+features:
+  realTime: true
+  autoExport: markdown
+apiKey: your-api-key-here
+```
+</CodeGroup>
+
+## Initiate Your First Conversation
+
+Start capturing knowledge right away.
+
+1. Select your workspace from the sidebar.
+2. Click **New Conversation** and choose a topic like "Onboarding Process".
+3. Chat with the AI: Ask "Explain our deployment workflow" and refine responses.
+4. Tacivo structures your input into searchable docs automatically.
+
+<Callout kind="success">
+  Conversations compound—each session builds on prior knowledge for richer institutional memory.
+</Callout>
+
+## Basic Navigation
+
+Explore the interface with these key sections.
+
+<Columns cols={3}>
+  <Card title="Dashboard" icon="layout" href="/docs/dashboard">
+    Overview of workspaces, recent conversations, and knowledge metrics.
+  </Card>
+  
+  <Card title="Conversations" icon="message-circle" href="/docs/conversations">
+    Manage, search, and export your AI sessions.
+  </Card>
+  
+  <Card title="Knowledge Base" icon="database" href="/docs/knowledge-base">
+    View structured docs generated from conversations.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **Login fails?** Clear browser cache and try incognito mode.
+  - **Slow responses?** Check your internet connection; Tacivo requires stable `{>10ms}` latency.
+  - **Export errors?** Ensure `{API_KEY}` is correctly set in workspace settings.
+</Expandable>
+
+Your Tacivo setup is complete. Begin conversations to transform expertise into a competitive moat. For advanced features, explore API integrations next.

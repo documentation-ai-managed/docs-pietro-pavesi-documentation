@@ -1,0 +1,149 @@
+---
+title: Changelog
+description: Version history of Tacivo, highlighting new features, improvements, and bug fixes.
+---
+
+## Recent Updates
+
+Tacivo releases updates regularly to enhance knowledge capture and AI conversation features. You review changes here to stay current with improvements in documentation generation, search capabilities, and integration options.
+
+<Columns cols={3}>
+  <Card title="Latest Release" icon="git-branch" href="#v120">
+    Explore the most recent features and fixes in v1.2.0.
+  </Card>
+  <Card title="All Releases" icon="list" href="#v110">
+    View complete version history.
+  </Card>
+  <Card title="Upgrade Guide" icon="upload" href="#upgrading">
+    Learn how to update your Tacivo instance quickly.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Subscribe to our RSS feed or GitHub notifications to receive instant alerts on new releases.
+</Callout>
+
+<Update label="2024-10-20" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added export to Markdown and PDF for captured conversations, enabling seamless integration with documentation tools.
+- Introduced real-time collaboration in AI sessions, allowing multiple experts to contribute simultaneously.
+
+## Improvements
+
+- Enhanced search with semantic matching, improving recall by `>30%` on complex queries.
+- Optimized conversation threading for faster response times under high load.
+
+## Bug Fixes
+
+- Fixed intermittent failures in knowledge graph updates during long sessions.
+- Resolved authentication drift in webhook integrations.
+
+</Update>
+
+<Update label="2024-10-05" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Conversation analytics dashboard with metrics on knowledge density and expert engagement.
+- API endpoint for bulk importing structured documents.
+
+## Bug Fixes
+
+- Corrected parsing errors for nested JSON in expert inputs.
+- Patched security vulnerability in session token handling (CVE-2024-XXXX).
+
+</Update>
+
+<Update label="2024-09-15" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## Initial Release
+
+- Core AI conversation engine for capturing tacit knowledge.
+- Structured documentation generator with searchable outputs.
+- Basic integrations for Slack and Microsoft Teams.
+
+## Breaking Changes
+
+- Updated authentication to OAuth 2.0; migrate from API keys.
+
+</Update>
+
+## Upgrading Tacivo
+
+Follow these steps to upgrade your installation safely.
+
+<Steps>
+  <Step title="Backup Data" icon="database">
+    Export your conversations and knowledge base.
+
+    ```bash
+    tacivo export --all --output=backup-$(date +%Y%m%d).zip
+    ```
+  </Step>
+  <Step title="Update Package" icon="package">
+    <Tabs>
+      <Tab title="npm" icon="nodejs">
+        ```bash
+        npm update tacivo-sdk@latest
+        ```
+      </Tab>
+      <Tab title="Docker" icon="docker">
+        ```bash
+        docker pull tacivo:latest
+        docker-compose up -d
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Run Migrations" icon="database">
+    ```bash
+    tacivo migrate --env=production
+    ```
+  </Step>
+  <Step title="Verify" icon="check-circle">
+    Test key endpoints and search functionality.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Verify SDK version post-upgrade
+  import { Tacivo } from 'tacivo-sdk';
+  console.log(Tacivo.version); // Should log >=1.2.0
+  ```
+  ```python
+  # Verify SDK version post-upgrade
+  import tacivo
+  print(tacivo.__version__)  # Should print >=1.2.0
+  ```
+</CodeGroup>
+
+## Upcoming Changes
+
+<ExpandableGroup>
+  <Expandable title="v1.3.0 Preview" default-open="false">
+
+    Plan for multi-language support in AI conversations and advanced analytics exports.
+
+    - Beta voice-to-text transcription.
+    - Integration with vector databases like Pinecone.
+
+  </Expandable>
+  <Expandable title="Roadmap Q4 2024">
+
+    Focus on enterprise features:
+
+    | Feature | Status | ETA |
+    |---------|--------|-----|
+    | Role-based access control | In Development | Nov 2024 |
+    | Custom AI models | Planned | Dec 2024 |
+    | Mobile app | Research | Q1 2025 |
+
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Report issues or suggest features on GitHub. Your feedback shapes Tacivo's evolution.
+</Callout>
